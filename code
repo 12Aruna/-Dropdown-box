@@ -1,0 +1,166 @@
+<html>
+<head>
+<style>
+.text-box {
+  position: absolute;
+  top: 5%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align:center; 
+ color:blue; 
+ font-size: 25px;
+  font-family: "Cambria";
+}
+
+.heading-primary {
+    color:#333;
+    text-transform: uppercase;
+}
+
+.heading-primary-main {
+    display: block;
+    font-size: 60px;
+    font-weight: 400;
+    letter-spacing: 10px;
+   /*  Animation decalaration   */
+    animation-name: moveInleft;
+    animation-duration: 5s;
+     text-align:center; 
+}
+
+.heading-primary-sub {
+    display: block;
+    font-size: 29px;
+    font-weight: 700;
+    letter-spacing: 5.9px;
+  
+    animation-name: moveInRight;
+    animation-duration: 3s;
+}
+
+@keyframes moveInleft {
+    0% {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+
+    80% {
+        transform: translateX(10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+@keyframes moveInRight {
+    0% {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+
+    80% {
+        transform: translateX(-10px);
+    }
+    
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+
+}
+.button {
+  display: flex;
+  align-items: top;
+  height: 100%;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  color: red;
+  font-size: 25px;
+  font-family: "Cambria";
+}
+
+.split-button {
+  position: relative;
+  display: flex;
+  align-items: center;
+  align-content: flex-start;
+  height: 60px;
+  background: green;
+  border-radius: 8px;
+}
+
+.split-button > button:nth-child(1) {
+  padding: 0 24px;
+}
+
+.split-button > button:nth-child(2) {
+  width: 60px;
+  background: blue;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+
+
+</style>
+<meta charset="UTF-8">
+	<meta name="viewport" content=
+	"width=device-width, initial-scale=1.0">
+	<title>Text Animation</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+                                                
+             <select id="mySelection" class="text-box"   class="split-button" onchange="ChangeText();" style="width: 90%; height:20%">
+               
+             <option disabled="disabled" class="button" selected="selected">Select method</option>
+                  <option value="1">Mumbai</option>
+                  <option value="2">chennai</option>
+                  <option value="3">bangalore</option>
+                  <option value="3">hyderabad</option>
+                  <option value="3">ahmedabad</option>
+                  
+                  
+                   </select>
+                  &nbsp;&nbsp;&nbsp;
+
+          
+          <div  id="test"> 
+             
+          </div>  
+<script>
+
+
+function ChangeText()
+                     {
+                          var contentText;
+                          var selectedITem='';
+                        var parm = document.getElementById("mySelection");
+                          selectedITem =parm.options[parm.selectedIndex].text;
+                          if(selectedITem == 'Mumbai')
+                            contentText = '<p class="heading-primary-main" >Populations in 2011 <br> 12,442,373<br> <span class="heading-primary-main"> Populations in 2001<br> 11,978,450</span> </p>'
+                      
+                         else  if(selectedITem == 'chennai')
+                            contentText = '<p class="heading-primary-main" >Populations in 2011 <br> 4,681,087<br> <span class="heading-primary-main"> Populations in 2001<br> 4,343,645</span> </p>'
+                      
+                         else  if(selectedITem == 'bangalore')
+                            contentText =  '<p class="heading-primary-main" >Populations in 2011 <br> 8,425,970<br> <span class="heading-primary-main"> Populations in 2001<br> 4,301,326</span> </p>'
+                        
+                           else  if(selectedITem == 'hyderabad')
+                            contentText =  '<p class="heading-primary-main" >Populations in 2011 <br> 6,809,970<br> <span class="heading-primary-main"> Populations in 2001<br> 3,637,483</span> </p>'
+                         else  if(selectedITem == 'ahmedabad')
+                            contentText =  '<p class="heading-primary-main" >Populations in 2011 <br> 5,570,585<br> <span class="heading-primary-main"> Populations in 2001<br> 3,520,085</span> </p>'
+                        
+                          
+    str=contentText;
+     $("#test").html(str);  
+                          
+                          
+   
+
+                        }
+ </script>
+              
+</html>
